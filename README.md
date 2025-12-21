@@ -50,13 +50,15 @@ A Windows Forms desktop application for viewing Markdown documents, built with V
 ## Usage
 
 1. Launch the application
-2. Click "Open" or press Ctrl+O to select a Markdown file (.md, .markdown, or .txt)
+2. Click "Open" or press Ctrl+O to select a Markdown file (.md, .markdown, docx, or .txt)
 3. The document will be rendered in the main viewing area
 4. Use the View menu to:
    - Toggle Dark Mode
    - Adjust font size
 5. Press F5 to reload the current document (useful when editing)
-
+6. Convert docx file to md format and save it in md format using pandoc
+7. pandoc must be installed see: https://pandoc.org/ to download and install
+   
 ## Supported Markdown Features
 
 The CDS.Markdown package supports standard Markdown syntax including:
