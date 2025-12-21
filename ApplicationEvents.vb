@@ -25,5 +25,16 @@ Namespace My
 
     Partial Friend Class MyApplication
 
+        ' Shared variable to store the command-line file path
+        Public Shared StartupFilePath As String = String.Empty
+
+        Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
+            ' Check if a file path was passed as a command-line argument
+            If e.CommandLine.Count > 0 Then
+                ' Store the first command-line argument (the file path)
+                StartupFilePath = e.CommandLine(0)
+            End If
+        End Sub
+
     End Class
 End Namespace

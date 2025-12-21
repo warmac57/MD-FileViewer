@@ -7,7 +7,12 @@
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>DOCmd.ICO</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="DOCmd.ICO" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />

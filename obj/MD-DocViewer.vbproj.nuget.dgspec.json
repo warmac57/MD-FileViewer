@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-DocViewer\\MD-DocViewer.vbproj": {}
+    "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-FileViewer\\MD-DocViewer.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-DocViewer\\MD-DocViewer.vbproj": {
+    "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-FileViewer\\MD-DocViewer.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-DocViewer\\MD-DocViewer.vbproj",
+        "projectUniqueName": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-FileViewer\\MD-DocViewer.vbproj",
         "projectName": "MD-DocViewer",
-        "projectPath": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-DocViewer\\MD-DocViewer.vbproj",
+        "projectPath": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-FileViewer\\MD-DocViewer.vbproj",
         "packagesPath": "C:\\Users\\sides\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-DocViewer\\obj\\",
+        "outputPath": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-FileViewer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",

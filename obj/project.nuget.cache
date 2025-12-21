@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2+m0NVyhqdw=",
+  "dgSpecHash": "yZJy+AlBI7g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-DocViewer\\MD-DocViewer.vbproj",
+  "projectFilePath": "C:\\Users\\sides\\Documents\\GitHub\\WarMac57\\MD-FileViewer\\MD-DocViewer.vbproj",
   "expectedPackageFiles": [
     "C:\\Users\\sides\\.nuget\\packages\\cds.markdown\\1.3.16\\cds.markdown.1.3.16.nupkg.sha512",
     "C:\\Users\\sides\\.nuget\\packages\\markdig\\0.41.3\\markdig.0.41.3.nupkg.sha512",

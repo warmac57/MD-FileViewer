@@ -25,6 +25,7 @@ Partial Class frmMDFileView
         MarkdownViewer1 = New CDS.Markdown.MarkdownViewer()
         btnOpen = New Button()
         lblStatus = New Label()
+        Label1 = New Label()
         SuspendLayout()
         ' 
         ' MarkdownViewer1
@@ -55,11 +56,20 @@ Partial Class frmMDFileView
         lblStatus.Text = "Open File.md"
         lblStatus.TextAlign = ContentAlignment.MiddleLeft
         ' 
+        ' Label1
+        ' 
+        Label1.Location = New Point(246, 20)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(264, 23)
+        Label1.TabIndex = 3
+        Label1.Text = "Opens MD or Convert DOCX file to MD Format."
+        ' 
         ' frmMDFileView
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(633, 493)
+        Controls.Add(Label1)
         Controls.Add(lblStatus)
         Controls.Add(btnOpen)
         Controls.Add(MarkdownViewer1)
@@ -73,5 +83,6 @@ Partial Class frmMDFileView
     Friend WithEvents MarkdownViewer1 As CDS.Markdown.MarkdownViewer
     Friend WithEvents btnOpen As Button
     Friend WithEvents lblStatus As Label
+    Friend WithEvents Label1 As Label
 
 End Class
