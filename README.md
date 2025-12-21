@@ -56,8 +56,8 @@ A Windows Forms desktop application for viewing Markdown documents, built with V
    - Toggle Dark Mode
    - Adjust font size
 5. Press F5 to reload the current document (useful when editing)
-6. Convert docx file to md format and save it in md format using pandoc
-7. pandoc must be installed see: https://pandoc.org/ to download and install
+6. Converts and saves *.docx file to md format using pandoc
+7. pandoc must be installed for use. Visit https://pandoc.org/ to download and install
    
 ## Supported Markdown Features
 
