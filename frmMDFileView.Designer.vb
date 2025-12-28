@@ -72,7 +72,7 @@ Partial Class frmMDFileView
         Label1.Name = "Label1"
         Label1.Size = New Size(243, 34)
         Label1.TabIndex = 3
-        Label1.Text = "Opens MD, renders Mermaid diagrams, or converts DOCX to MD."
+        Label1.Text = "Opens Markdown and renders Mermaid diagrams, or converts DOCX to MD."
         ' 
         ' frmMDFileView
         ' 
@@ -87,7 +87,7 @@ Partial Class frmMDFileView
         FormBorderStyle = FormBorderStyle.SizableToolWindow
         Name = "frmMDFileView"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "MD File View"
+        Text = "MD and MMD File Viewer by Sideline Software - Cedar Rapids IA"
         ResumeLayout(False)
     End Sub
 
