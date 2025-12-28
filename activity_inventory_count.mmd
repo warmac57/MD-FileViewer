@@ -1,0 +1,88 @@
+flowchart TD
+    Start([Physical Count Performed]) --> A[Retrieve Item Details]
+    A --> B[System Qty = Item.Stock_Quantity]
+    
+    B --> C[User Enters Counted Quantity]
+    C --> D[Calculate Variance]
+    D --> E[Qty Change = Counted - System]
+    E --> F[Get Item.Current_Item_Cost]
+    F --> G[Variance Value = Qty Change × Cost]
+    
+    G --> H{Variance Amount?}
+    
+    H -->|Zero Variance| I[No Adjustment Needed]
+    I --> End1([Count Complete - No Change])
+    
+    H -->|Positive Variance| J[Stock Increase Detected]
+    J --> K[Display: +Qty Change units<br/>Value: +Variance Value]
+    K --> L{Approve Increase?}
+    
+    L -->|YES| M[Apply Positive Adjustment]
+    M --> N[Stock = System + Qty Change]
+    N --> AE[Create Stock History]
+    
+    L -->|NO| O[Cancel Count]
+    O --> End2([Count Cancelled])
+    
+    H -->|Negative Variance| P[Stock Decrease Detected]
+    P --> Q[Display: Qty Change units<br/>Value: Variance Value]
+    Q --> R{Approve Decrease?}
+    
+    R -->|NO| O
+    
+    R -->|YES| S{★ Check Store Setting:<br/>Negative_Stock_Allowed?}
+    
+    S -->|TRUE| T[Negative Stock Permitted]
+    T --> U[Apply Negative Adjustment]
+    U --> V[Stock = System + Qty Change]
+    V --> AE
+    
+    S -->|FALSE| W[Calculate Result]
+    W --> X[Result = System + Qty Change]
+    X --> Y{Result < 0?}
+    
+    Y -->|YES| Z[❌ Would Create Negative Stock]
+    Z --> AA[Display Error]
+    AA --> AB{Override Action?}
+    
+    AB -->|Admin Override| AC[Temporarily Allow]
+    AC --> U
+    
+    AB -->|Recount| C
+    
+    AB -->|Cancel| O
+    
+    Y -->|NO| AD[✓ Stock Remains Positive]
+    AD --> U
+    
+    AE --> AF[Set Transaction Type = Count]
+    AF --> AG[Set Reference_ID = Count_ID]
+    AG --> AH[Set Qty Change]
+    AH --> AI[Set Stock Before = System]
+    AI --> AJ[Set Stock After = Counted]
+    AJ --> AK[Set Notes with Variance]
+    AK --> AL[Save History Record]
+    
+    AL --> AM[Update Count Status = Applied]
+    AM --> AN[Set Counted_By_User_ID]
+    AN --> End3([Count Applied Successfully])
+    
+    style S fill:#ffe1e1,stroke:#ff0000,stroke-width:3px
+    style H fill:#fff4e1,stroke:#ffa500,stroke-width:2px
+    style Y fill:#fff4e1,stroke:#ffa500,stroke-width:2px
+    style D fill:#e1f5ff
+    style E fill:#e1f5ff
+    style F fill:#e1f5ff
+    style G fill:#e1f5ff
+    style Z fill:#ffe1e1,stroke:#ff0000,stroke-width:2px
+    style AD fill:#e1ffe1,stroke:#00ff00,stroke-width:2px
+    style T fill:#e1ffe1,stroke:#00ff00,stroke-width:2px
+    style M fill:#e1ffe1
+    style U fill:#e1ffe1
+    style AE fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    
+    classDef calculation fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    classDef validation fill:#ffe1e1,stroke:#ff0000,stroke-width:3px
+    classDef decision fill:#fff4e1,stroke:#ffa500,stroke-width:2px
+    classDef success fill:#e1ffe1,stroke:#00ff00,stroke-width:2px
+    classDef error fill:#ffe1e1,stroke:#ff0000,stroke-width:2px

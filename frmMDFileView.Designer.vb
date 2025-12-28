@@ -24,6 +24,7 @@ Partial Class frmMDFileView
     Private Sub InitializeComponent()
         MarkdownViewer1 = New CDS.Markdown.MarkdownViewer()
         btnOpen = New Button()
+        btnExportDocx = New Button()
         lblStatus = New Label()
         Label1 = New Label()
         SuspendLayout()
@@ -38,12 +39,21 @@ Partial Class frmMDFileView
         ' 
         ' btnOpen
         ' 
-        btnOpen.Location = New Point(516, 12)
+        btnOpen.Location = New Point(543, 0)
         btnOpen.Name = "btnOpen"
-        btnOpen.Size = New Size(105, 31)
+        btnOpen.Size = New Size(78, 43)
         btnOpen.TabIndex = 1
         btnOpen.Text = "Open"
         btnOpen.UseVisualStyleBackColor = True
+        ' 
+        ' btnExportDocx
+        ' 
+        btnExportDocx.Location = New Point(453, 0)
+        btnExportDocx.Name = "btnExportDocx"
+        btnExportDocx.Size = New Size(84, 43)
+        btnExportDocx.TabIndex = 4
+        btnExportDocx.Text = "Export to DOCX"
+        btnExportDocx.UseVisualStyleBackColor = True
         ' 
         ' lblStatus
         ' 
@@ -58,11 +68,11 @@ Partial Class frmMDFileView
         ' 
         ' Label1
         ' 
-        Label1.Location = New Point(246, 20)
+        Label1.Location = New Point(204, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(264, 23)
+        Label1.Size = New Size(243, 34)
         Label1.TabIndex = 3
-        Label1.Text = "Opens MD or Convert DOCX file to MD Format."
+        Label1.Text = "Opens MD, renders Mermaid diagrams, or converts DOCX to MD."
         ' 
         ' frmMDFileView
         ' 
@@ -71,6 +81,7 @@ Partial Class frmMDFileView
         ClientSize = New Size(633, 493)
         Controls.Add(Label1)
         Controls.Add(lblStatus)
+        Controls.Add(btnExportDocx)
         Controls.Add(btnOpen)
         Controls.Add(MarkdownViewer1)
         FormBorderStyle = FormBorderStyle.SizableToolWindow
@@ -82,6 +93,7 @@ Partial Class frmMDFileView
 
     Friend WithEvents MarkdownViewer1 As CDS.Markdown.MarkdownViewer
     Friend WithEvents btnOpen As Button
+    Friend WithEvents btnExportDocx As Button
     Friend WithEvents lblStatus As Label
     Friend WithEvents Label1 As Label
 
