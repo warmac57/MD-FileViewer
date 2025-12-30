@@ -1,0 +1,13 @@
+flowchart LR
+    A[MD File Viewer] --> B{File Type?}
+    B -->|.md| C[Markdown Viewer]
+    B -->|.docx| D[Convert to MD]
+    B -->|.mmd| E[Mermaid Viewer]
+    D --> C
+    E --> F[Render Diagram]
+    C --> G[Display]
+    F --> G
+
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#bfb,stroke:#333,stroke-width:2px
