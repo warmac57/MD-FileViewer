@@ -92,14 +92,16 @@ Public Class frmMDFileView
             Dim baseFileName As String = Path.GetFileNameWithoutExtension(docxFilePath)
             Dim mdFilePath As String = Path.Combine(sourceDirectory, baseFileName & ".md")
 
-            ' Set up the pandoc process
+            ' Set up the pandoc process with UTF-8 encoding
             Dim pandocProcess As New Process()
             pandocProcess.StartInfo.FileName = "pandoc"
-            pandocProcess.StartInfo.Arguments = $"""{docxFilePath}"" -o ""{mdFilePath}"""
+            pandocProcess.StartInfo.Arguments = $"""{docxFilePath}"" -o ""{mdFilePath}"" --wrap=preserve"
             pandocProcess.StartInfo.UseShellExecute = False
             pandocProcess.StartInfo.RedirectStandardOutput = True
             pandocProcess.StartInfo.RedirectStandardError = True
             pandocProcess.StartInfo.CreateNoWindow = True
+            pandocProcess.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8
+            pandocProcess.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8
 
             ' Start the process and wait for it to complete
             pandocProcess.Start()
@@ -161,11 +163,11 @@ Public Class frmMDFileView
 
     Private Function ConvertMarkdownToHtmlUsingPandoc(markdownContent As String) As String
         Try
-            ' Create temporary markdown file
+            ' Create temporary markdown file with UTF-8 encoding
             Dim tempMdPath As String = Path.Combine(Path.GetTempPath(), $"temp_{Guid.NewGuid()}.md")
-            File.WriteAllText(tempMdPath, markdownContent)
+            File.WriteAllText(tempMdPath, markdownContent, System.Text.Encoding.UTF8)
 
-            ' Set up the pandoc process to convert to HTML fragment
+            ' Set up the pandoc process to convert to HTML fragment with UTF-8 encoding
             Dim pandocProcess As New Process()
             pandocProcess.StartInfo.FileName = "pandoc"
             pandocProcess.StartInfo.Arguments = $"""{tempMdPath}"" -f markdown -t html"
@@ -173,6 +175,8 @@ Public Class frmMDFileView
             pandocProcess.StartInfo.RedirectStandardOutput = True
             pandocProcess.StartInfo.RedirectStandardError = True
             pandocProcess.StartInfo.CreateNoWindow = True
+            pandocProcess.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8
+            pandocProcess.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8
 
             ' Start the process and capture output
             pandocProcess.Start()
@@ -204,8 +208,8 @@ Public Class frmMDFileView
     ''' </summary>
     Private Function CreateMarkdownHtml(markdownFilePath As String) As String
         Try
-            ' Read the Markdown content
-            Dim markdownContent As String = File.ReadAllText(markdownFilePath)
+            ' Read the Markdown content with UTF-8 encoding
+            Dim markdownContent As String = File.ReadAllText(markdownFilePath, System.Text.Encoding.UTF8)
 
             ' Convert markdown to HTML using pandoc
             Dim htmlBody As String = ConvertMarkdownToHtmlUsingPandoc(markdownContent)
@@ -291,9 +295,9 @@ Public Class frmMDFileView
 </body>
 </html>"
 
-            ' Create temporary HTML file
+            ' Create temporary HTML file with UTF-8 encoding
             Dim tempPath As String = Path.Combine(Path.GetTempPath(), $"markdown_{Guid.NewGuid()}.html")
-            File.WriteAllText(tempPath, htmlContent)
+            File.WriteAllText(tempPath, htmlContent, System.Text.Encoding.UTF8)
 
             Return tempPath
 
@@ -307,8 +311,8 @@ Public Class frmMDFileView
     ''' </summary>
     Public Shared Function CreateMermaidHtmlForBrowser(mermaidFilePath As String) As String
         Try
-            ' Read the Mermaid diagram content
-            Dim mermaidContent As String = File.ReadAllText(mermaidFilePath)
+            ' Read the Mermaid diagram content with UTF-8 encoding
+            Dim mermaidContent As String = File.ReadAllText(mermaidFilePath, System.Text.Encoding.UTF8)
 
             ' Auto-fix deprecated 'graph' syntax to 'flowchart'
             mermaidContent = System.Text.RegularExpressions.Regex.Replace(
@@ -379,9 +383,9 @@ Public Class frmMDFileView
 </body>
 </html>"
 
-            ' Create temporary HTML file
+            ' Create temporary HTML file with UTF-8 encoding
             Dim tempPath As String = Path.Combine(Path.GetTempPath(), $"mermaid_browser_{Guid.NewGuid()}.html")
-            File.WriteAllText(tempPath, htmlContent)
+            File.WriteAllText(tempPath, htmlContent, System.Text.Encoding.UTF8)
 
             Return tempPath
 
@@ -392,8 +396,8 @@ Public Class frmMDFileView
 
     Private Function CreateMermaidHtml(mermaidFilePath As String) As String
         Try
-            ' Read the Mermaid diagram content
-            Dim mermaidContent As String = File.ReadAllText(mermaidFilePath)
+            ' Read the Mermaid diagram content with UTF-8 encoding
+            Dim mermaidContent As String = File.ReadAllText(mermaidFilePath, System.Text.Encoding.UTF8)
 
             ' Auto-fix deprecated 'graph' syntax to 'flowchart'
             mermaidContent = System.Text.RegularExpressions.Regex.Replace(
@@ -628,9 +632,9 @@ Public Class frmMDFileView
 </body>
 </html>"
 
-            ' Create temporary HTML file
+            ' Create temporary HTML file with UTF-8 encoding
             Dim tempPath As String = Path.Combine(Path.GetTempPath(), $"mermaid_{Guid.NewGuid()}.html")
-            File.WriteAllText(tempPath, htmlContent)
+            File.WriteAllText(tempPath, htmlContent, System.Text.Encoding.UTF8)
 
             ' Debug mode: Show diagnostic info
             If DEBUG_MODE Then
@@ -654,7 +658,7 @@ Public Class frmMDFileView
             lblStatus.Text = "Exporting to DOCX..."
             Application.DoEvents()
 
-            ' Set up the pandoc process
+            ' Set up the pandoc process with UTF-8 encoding
             Dim pandocProcess As New Process()
             pandocProcess.StartInfo.FileName = "pandoc"
             pandocProcess.StartInfo.Arguments = $"""{mdFilePath}"" -o ""{docxFilePath}"""
@@ -662,6 +666,8 @@ Public Class frmMDFileView
             pandocProcess.StartInfo.RedirectStandardOutput = True
             pandocProcess.StartInfo.RedirectStandardError = True
             pandocProcess.StartInfo.CreateNoWindow = True
+            pandocProcess.StartInfo.StandardOutputEncoding = System.Text.Encoding.UTF8
+            pandocProcess.StartInfo.StandardErrorEncoding = System.Text.Encoding.UTF8
 
             ' Start the process and wait for it to complete
             pandocProcess.Start()
