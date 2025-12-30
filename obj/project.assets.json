@@ -193,7 +193,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "CDS.Markdown >= 1.3.16"
+      "CDS.Markdown >= 1.3.16",
+      "Microsoft.Web.WebView2 >= 1.0.3351.48"
     ]
   },
   "packageFolders": {
@@ -258,6 +259,10 @@
           "CDS.Markdown": {
             "target": "Package",
             "version": "[1.3.16, )"
+          },
+          "Microsoft.Web.WebView2": {
+            "target": "Package",
+            "version": "[1.0.3351.48, )"
           }
         },
         "imports": [

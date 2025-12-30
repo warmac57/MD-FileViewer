@@ -22,36 +22,48 @@ Partial Class frmMDFileView
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        MarkdownViewer1 = New CDS.Markdown.MarkdownViewer()
+        WebView21 = New Microsoft.Web.WebView2.WinForms.WebView2()
         btnOpen = New Button()
         btnExportDocx = New Button()
         lblStatus = New Label()
         Label1 = New Label()
+        btnOpenInBrowser = New Button()
+        SplitContainer1 = New SplitContainer()
+        CType(WebView21, ComponentModel.ISupportInitialize).BeginInit()
+        CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
+        SplitContainer1.Panel1.SuspendLayout()
+        SplitContainer1.Panel2.SuspendLayout()
+        SplitContainer1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' MarkdownViewer1
+        ' WebView21
         ' 
-        MarkdownViewer1.Dock = DockStyle.Fill
-        MarkdownViewer1.Location = New Point(0, 0)
-        MarkdownViewer1.Name = "MarkdownViewer1"
-        MarkdownViewer1.Size = New Size(633, 493)
-        MarkdownViewer1.TabIndex = 0
+        WebView21.AllowExternalDrop = True
+        WebView21.CreationProperties = Nothing
+        WebView21.DefaultBackgroundColor = Color.White
+        WebView21.Dock = DockStyle.Fill
+        WebView21.Location = New Point(0, 0)
+        WebView21.Name = "WebView21"
+        WebView21.Size = New Size(633, 433)
+        WebView21.TabIndex = 0
+        WebView21.ZoomFactor = 1R
         ' 
         ' btnOpen
         ' 
-        btnOpen.Location = New Point(543, 0)
+        btnOpen.Location = New Point(543, 9)
         btnOpen.Name = "btnOpen"
-        btnOpen.Size = New Size(78, 43)
+        btnOpen.Size = New Size(78, 40)
         btnOpen.TabIndex = 1
         btnOpen.Text = "Open"
         btnOpen.UseVisualStyleBackColor = True
         ' 
         ' btnExportDocx
         ' 
-        btnExportDocx.Location = New Point(453, 0)
+        btnExportDocx.Location = New Point(459, 9)
         btnExportDocx.Name = "btnExportDocx"
-        btnExportDocx.Size = New Size(84, 43)
+        btnExportDocx.Size = New Size(78, 40)
         btnExportDocx.TabIndex = 4
+        btnExportDocx.TabStop = False
         btnExportDocx.Text = "Export to DOCX"
         btnExportDocx.UseVisualStyleBackColor = True
         ' 
@@ -59,7 +71,7 @@ Partial Class frmMDFileView
         ' 
         lblStatus.BorderStyle = BorderStyle.FixedSingle
         lblStatus.Dock = DockStyle.Bottom
-        lblStatus.Location = New Point(0, 466)
+        lblStatus.Location = New Point(0, 406)
         lblStatus.Name = "lblStatus"
         lblStatus.Size = New Size(633, 27)
         lblStatus.TabIndex = 2
@@ -68,33 +80,70 @@ Partial Class frmMDFileView
         ' 
         ' Label1
         ' 
-        Label1.Location = New Point(204, 9)
+        Label1.Location = New Point(3, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(243, 34)
+        Label1.Size = New Size(366, 40)
         Label1.TabIndex = 3
-        Label1.Text = "Opens Markdown and renders Mermaid diagrams, or converts DOCX to MD."
+        Label1.Text = "Opens Markdown (MD) and renders Mermaid (MMD)  diagrams, or converts DOCX <> MD. Use Mouse to Pan and Zoom view."
+        Label1.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' btnOpenInBrowser
+        ' 
+        btnOpenInBrowser.Location = New Point(375, 9)
+        btnOpenInBrowser.Name = "btnOpenInBrowser"
+        btnOpenInBrowser.Size = New Size(78, 40)
+        btnOpenInBrowser.TabIndex = 5
+        btnOpenInBrowser.TabStop = False
+        btnOpenInBrowser.Text = "Open in Browser"
+        btnOpenInBrowser.UseVisualStyleBackColor = True
+        ' 
+        ' SplitContainer1
+        ' 
+        SplitContainer1.Dock = DockStyle.Fill
+        SplitContainer1.Location = New Point(0, 0)
+        SplitContainer1.Name = "SplitContainer1"
+        SplitContainer1.Orientation = Orientation.Horizontal
+        ' 
+        ' SplitContainer1.Panel1
+        ' 
+        SplitContainer1.Panel1.Controls.Add(btnOpen)
+        SplitContainer1.Panel1.Controls.Add(btnExportDocx)
+        SplitContainer1.Panel1.Controls.Add(btnOpenInBrowser)
+        SplitContainer1.Panel1.Controls.Add(Label1)
+        ' 
+        ' SplitContainer1.Panel2
+        ' 
+        SplitContainer1.Panel2.Controls.Add(lblStatus)
+        SplitContainer1.Panel2.Controls.Add(WebView21)
+        SplitContainer1.Size = New Size(633, 493)
+        SplitContainer1.SplitterDistance = 56
+        SplitContainer1.TabIndex = 6
         ' 
         ' frmMDFileView
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(633, 493)
-        Controls.Add(Label1)
-        Controls.Add(lblStatus)
-        Controls.Add(btnExportDocx)
-        Controls.Add(btnOpen)
-        Controls.Add(MarkdownViewer1)
+        Controls.Add(SplitContainer1)
         FormBorderStyle = FormBorderStyle.SizableToolWindow
+        KeyPreview = True
         Name = "frmMDFileView"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "MD and MMD File Viewer by Sideline Software - Cedar Rapids IA"
+        Text = "Markdown File Viewer -- Sideline Software Systems"
+        CType(WebView21, ComponentModel.ISupportInitialize).EndInit()
+        SplitContainer1.Panel1.ResumeLayout(False)
+        SplitContainer1.Panel2.ResumeLayout(False)
+        CType(SplitContainer1, ComponentModel.ISupportInitialize).EndInit()
+        SplitContainer1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents MarkdownViewer1 As CDS.Markdown.MarkdownViewer
+    Friend WithEvents WebView21 As Microsoft.Web.WebView2.WinForms.WebView2
     Friend WithEvents btnOpen As Button
     Friend WithEvents btnExportDocx As Button
     Friend WithEvents lblStatus As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnOpenInBrowser As Button
+    Friend WithEvents SplitContainer1 As SplitContainer
 
 End Class
