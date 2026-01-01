@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("MD-DocViewer"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d76a454adab4cc8d5ed5be4a3deba2f0bb49332c"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe7045eee3a36738aff2d7fb0f73c4c90e2bf294"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("MD-DocViewer"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("MD-DocViewer"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
