@@ -1,0 +1,10 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+
+# WebView2 cache/state
+*.WebView2/
